@@ -1,0 +1,14 @@
+{
+    "test": {
+        "password_hash": "scrypt:32768:8:1$3k4oW0Lkx5ojAToP$f68081c74f4e7a16e3820c55104c1fb0cf92c10a1216ea45f15a48be238ecfdaa2190eed2d599b465fb3edc385f1844710caf6861c82f172ae996d6d3fec51ad"
+    },
+    "kova": {
+        "password_hash": "scrypt:32768:8:1$UfQVkPbkZ0zuNfXq$801ee7cb3956ba1e11d897e151615a4a7229a33a29a803b2a4c8a01f9d7c8f3c8fec1b151423c95807904d00cca7df770e70c0b6741e919b0f848c981bced774"
+    },
+    "admin": {
+        "password_hash": "scrypt:32768:8:1$xdDRaGmyUlFCAreM$692912a5751678ba29c0ad080c902b836dd2554ee52c13d1104ecf4eee6a96dbfe9462e00c2ba6c97399ddd6cb2940d350b51912be03d0232fbd050b2851a4ef"
+    },
+    "user": {
+        "password_hash": "scrypt:32768:8:1$GSisBmvwhnuxxmeO$3fd8f0eb86f3d44a68c1e4ec8b359bf20448cbc756474d504e8c78a9140c4c2a0267f0ac5ca6e6b0a7687e8aa442975f9afa1bf27f872e644399a2c1e204eaf3"
+    }
+}

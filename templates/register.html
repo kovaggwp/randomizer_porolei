@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход | Marmoset Style</title>
+    <title>Регистрация | Marmoset Style</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Стили, повторяющие темную тему */
@@ -54,23 +54,23 @@
             margin-bottom: 15px;
         }
 
-        /* Кнопка "Войти" */
+        /* Кнопка "Зарегистрироваться" */
         input[type="submit"] {
-            background-color: #007bff; /* Синий акцент */
-            color: white;
-            border: 2px solid #0056b3;
+            background-color: #39ff14; /* Неоново-зеленый акцент */
+            color: #1a1a1a;
+            border: 2px solid #20c20e;
             padding: 15px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
             font-size: 1.1em;
             text-transform: uppercase;
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(57, 255, 20, 0.4);
             transition: all 0.3s;
             margin-top: 15px;
         }
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #20c20e;
             transform: translateY(-3px) scale(1.02);
         }
 
@@ -87,7 +87,7 @@
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
         }
 
-        /* Ссылка на регистрацию/подсказка */
+        /* Ссылка на вход/подсказка */
         .hint {
             margin-top: 1.8em;
             font-size: 0.9em;
@@ -95,20 +95,19 @@
             text-align: center;
         }
         .hint a {
-            color: #39ff14; /* Неоново-зеленая ссылка */
+            color: #007bff; /* Синяя ссылка */
             text-decoration: none;
             font-weight: bold;
-            text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
             transition: color 0.3s;
         }
         .hint a:hover {
-             color: #ffda47;
+            color: #ffda47;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>ВХОД В СИСТЕМУ</h1>
+        <h1>НОВАЯ РЕГИСТРАЦИЯ</h1>
 
         {% if error %}
         <div class="error">{{ error }}</div>
@@ -121,11 +120,11 @@
             <label for="password">ПАРОЛЬ:</label>
             <input type="password" id="password" name="password" required>
 
-            <input type="submit" value="ВОЙТИ">
+            <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ">
         </form>
 
         <p class="hint">
-            Нет аккаунта? <a href="{{ url_for('register') }}">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+            Уже есть аккаунт? <a href="{{ url_for('login') }}">ВОЙТИ</a>
         </p>
     </div>
 </body>

@@ -3,109 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Генератор паролей</title>
+    <title>Генератор Паролей | Marmoset Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Оставляем стили из вашего исходного кода,
-           но добавляем стили для расположения кнопки выхода */
+        /* Глобальные стили */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f4f7f6;
+            min-height: 100vh;
+            background-color: #0c1a25; /* Очень темный синий фон */
+            color: #f0f0f0;
             margin: 0;
-            flex-direction: column; /* Добавлено для центрирования */
+            line-height: 1.6;
         }
+        /* Главный контейнер (карточка) */
         .container {
-            background-color: #ffffff;
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #2c2c2c; /* Темный фон карточки */
+            padding: 30px;
+            border-radius: 15px; /* Скругленные углы */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            border: 3px solid #ffda47; /* Яркая граница */
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
+            position: relative;
         }
+
+        /* Заголовок в стиле комикса */
         h1 {
-            color: #333;
-            /* Убрано text-align: center, чтобы соответствовать изображению */
+            font-family: 'Bangers', cursive;
+            color: #ffda47; /* Яркий желтый */
+            text-shadow: 2px 2px #d46a00, 4px 4px #8b3c00; /* Двойная тень для объема */
+            text-align: center;
+            margin-top: 0;
             margin-bottom: 0.5em;
+            font-size: 2.5em;
+            letter-spacing: 1px;
         }
-        /* Новый стиль для блока информации о пользователе и кнопки выхода */
+
+        /* Информация о пользователе и выход */
         .header-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1em;
-            padding: 0 0 10px 0;
-            border-bottom: 1px solid #eee;
+            margin-bottom: 1.5em;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #444;
         }
         .header-info p {
             margin: 0;
-            color: #555;
+            color: #b0b0b0;
             font-size: 0.9em;
         }
         .header-info a {
-            color: #007bff;
+            color: #39ff14; /* Неоново-зеленый акцент для выхода */
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.5);
+            transition: all 0.3s;
         }
         .header-info a:hover {
-            color: #dc3545; /* Слегка меняем цвет при наведении */
+            color: #ffda47; /* Желтый при наведении */
         }
 
-        /* ... Остальные ваши стили (form, label, input[type="number"], etc.) ... */
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+        /* Поля ввода и выбор */
         label {
             margin-bottom: 0.5em;
-            color: #555;
+            color: #ffda47;
+            font-weight: 700;
         }
-        input[type="number"], input[type="submit"] {
-            padding: 0.8em;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            margin-bottom: 1em;
+        input[type="number"], input[type="text"], input[type="password"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #5d3f8c; /* Фиолетовая граница */
+            background-color: #1a1a1a; /* Очень темный фон поля */
+            color: #f0f0f0;
+            margin-bottom: 15px;
+            font-size: 1em;
         }
-        input[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            border: none;
+        input[type="number"]:focus {
+            border-color: #39ff14; /* Неоновый зеленый фокус */
+            outline: none;
+        }
+
+        /* Чекбоксы */
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            color: #b0b0b0;
+            font-weight: 400;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: #39ff14;
+            transform: scale(1.2); /* Увеличим для заметности */
+        }
+
+        /* Кнопка "Сгенерировать" - Яркий акцент */
+        input[type="submit"] {
+            background-color: #39ff14; /* Неоново-зеленый */
+            color: #1a1a1a;
+            border: 2px solid #20c20e;
+            padding: 15px;
+            border-radius: 50px; /* Сильно скругленные углы */
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(57, 255, 20, 0.4);
+            transition: all 0.3s;
+            margin-top: 20px;
         }
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #20c20e;
+            transform: translateY(-3px) scale(1.02);
         }
-        .checkbox-group label {
-            display: block;
-            margin-bottom: 0.5em;
-        }
+
+        /* Результат */
         .result {
-            margin-top: 1.5em;
-            padding: 1em;
-            background-color: #e9ecef;
-            border-radius: 4px;
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #1a1a1a; /* Фон результата */
+            border-radius: 10px;
             text-align: center;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #495057;
-            word-wrap: break-word;
+            border: 2px dashed #ffda47; /* Желтая пунктирная граница */
+            color: #e0e0e0;
+        }
+        .result code {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #007bff; /* Синий/Голубой цвет для самого пароля */
+            word-break: break-all;
+        }
+
+        /* Флэш-сообщения (стиль адаптирован) */
+        .flash-messages-container {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .alert {
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+        }
+        .alert-success {
+            background-color: #388E3C;
+            color: #e8f5e9;
+            border: 2px solid #4CAF50;
+        }
+        .alert-info {
+            background-color: #0277bd;
+            color: #e3f2fd;
+            border: 2px solid #03A9F4;
         }
     </style>
 </head>
 <body>
+
+    <div class="flash-messages-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+    </div>
+
     <div class="container">
         {% if session.logged_in %}
         <div class="header-info">
             <p>Привет, <b>{{ username }}</b>!</p>
-            <a href="{{ url_for('logout') }}">Выход</a>
+            <a href="{{ url_for('logout') }}">ВЫХОД</a>
         </div>
         {% endif %}
 
-        <h1>Генератор паролей</h1>
+        <h1>ГЕНЕРАТОР ПАРОЛЕЙ</h1>
 
         <form action="/" method="post">
             <label for="length">Длина пароля:</label>
@@ -118,12 +204,12 @@
                 <label><input type="checkbox" name="symbols" {% if use_symbols %}checked{% endif %}> Спецсимволы (!@#$...)</label>
             </div>
 
-            <input type="submit" value="Сгенерировать">
+            <input type="submit" value="СГЕНЕРИРОВАТЬ">
         </form>
 
         {% if password %}
         <div class="result">
-            <p>Ваш пароль:</p>
+            <p>Ваш новый пароль:</p>
             <code>{{ password }}</code>
         </div>
         {% endif %}
