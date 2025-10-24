@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
+    <title>Регистрация</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -66,7 +66,7 @@
             outline: none;
         }
         input[type="submit"] {
-            background: linear-gradient(145deg, #007bff, #0056b3);
+            background: linear-gradient(145deg, #28a745, #218838);
             color: white;
             padding: 1em 2em;
             border: none;
@@ -74,14 +74,14 @@
             cursor: pointer;
             font-size: 1.2em;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
             transition: background 0.3s, box-shadow 0.3s;
             width: 100%;
             margin-top: 1em;
         }
         input[type="submit"]:hover {
-            background: linear-gradient(145deg, #0056b3, #004085);
-            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.6);
+            background: linear-gradient(145deg, #218838, #196f2a);
+            box-shadow: 0 6px 15px rgba(40, 167, 69, 0.6);
         }
         .flash-message {
             padding: 0.8em 1.5em;
@@ -98,30 +98,25 @@
             color: white;
             border: 1px solid #c82333;
         }
-        .flash-success {
-            background-color: #28a745;
-            color: white;
-            border: 1px solid #218838;
-        }
-        p.register-link {
+        p.login-link {
             margin-top: 2em;
             font-size: 0.95em;
             color: #c0c0c0;
         }
-        p.register-link a {
-            color: #28a745;
+        p.login-link a {
+            color: #007bff;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
-        p.register-link a:hover {
-            color: #218838;
+        p.login-link a:hover {
+            color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Вход в систему</h1>
+        <h1>Регистрация</h1>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -136,12 +131,12 @@
             <input type="text" id="username" name="username" required autocomplete="username">
 
             <label for="password">ПАРОЛЬ:</label>
-            <input type="password" id="password" name="password" required autocomplete="current-password">
+            <input type="password" id="password" name="password" required autocomplete="new-password">
 
-            <input type="submit" value="ВОЙТИ">
+            <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ">
         </form>
-        <p class="register-link">
-            Нет аккаунта? <a href="{{ url_for('register') }}">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+        <p class="login-link">
+            Уже есть аккаунт? <a href="{{ url_for('login') }}">ВОЙТИ</a>
         </p>
     </div>
 </body>
