@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f7f6; margin: 0; }
+        .container { background-color: #ffffff; padding: 2em; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px; }
+        h1 { color: #333; text-align: center; margin-bottom: 1.5em; }
+        form { display: flex; flex-direction: column; }
+        label { margin-bottom: 0.5em; color: #555; }
+        input[type="text"], input[type="password"], input[type="submit"] { padding: 0.8em; border-radius: 4px; border: 1px solid #ccc; margin-bottom: 1em; }
+        input[type="submit"] { background-color: #007bff; color: white; border: none; cursor: pointer; transition: background-color 0.3s; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+        .error { color: #dc3545; padding: 0.5em; border: 1px solid #f5c6cb; background-color: #f8d7da; border-radius: 4px; margin-bottom: 1em; text-align: center; }
+        .hint { margin-top: 1.5em; font-size: 0.9em; color: #777; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Вход</h1>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="post">
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Войти" class="button-primary">
+        </form>
+
+        <p class="hint">
+            Нет аккаунта? <a href="{{ url_for('register') }}" style="color: #007bff; text-decoration: none;">Зарегистрируйтесь</a>
+        </p>
+    </div>
+</body>
+</html>
